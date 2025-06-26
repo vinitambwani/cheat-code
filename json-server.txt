@@ -1,3 +1,30 @@
-install json-server
+install json-server :
 
 $>npm i -g json-server
+
+=> -g option installs the json-server globally, if you prefer to install the json locally for a specific project then omit -g option.
+
+
+store data in a json file:
+
+create a json file which contains all the data example : db.json
+
+{
+      "posts": [
+        { "id": 1, "title": "Post 1", "author": "John Doe" },
+        { "id": 2, "title": "Post 2", "author": "Jane Smith" }
+,
+      "comments": [
+        { "id": 1, "postId": 1, "body": "Great post!" },
+        { "id": 2, "postId": 1, "body": "Thanks for sharing." }
+
+}
+
+run json-server :
+
+$>json-server --watch db.json
+
+server will typically start on http://localhost:3000
+
+one can access the data using the url : http://localhost:3000/posts
+
