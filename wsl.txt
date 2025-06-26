@@ -1,0 +1,39 @@
+
+# Listing of the list of distributions that one can install on the wsl
+
+$> wsl -l -o
+
+# The above command will give the list of linux distributions with information of Name and the Friendly Name. To install any of the linux distributions
+# we can use the following command
+
+$> wsl --install <Distro>
+$> wsl --install Ubuntu
+
+# Listing of the list of distributions that are already installed 
+
+$> wsl -l -v
+OR
+$> wsl --list --verbose
+
+# When you have the list of distributions installed to run or connect to the running Linux Distribution (Distro) we can use the following command 
+
+$> wsl -d <Distro>
+$> wsl -d Ubuntu
+
+# To shutdown all distros
+
+$> wsl --shutdown
+
+# To set a particular distro as default
+
+$> wsl -s <distro>
+example:
+$> wsl -s Ubuntu
+
+# To EXPORT a running distro as image
+
+$> wsl --export <distro_name_to_export> <path>\filename.tar
+
+
+
+

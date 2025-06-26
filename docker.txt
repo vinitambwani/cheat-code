@@ -1,0 +1,27 @@
+# To check the version of docker installed on the machine
+
+$> docker --version
+
+# To view the system wide information regarding the docker installation
+
+$> docker info
+
+# To list all the images which are available locally 
+
+$> docker image ls
+
+OR 
+
+$> docker images
+
+# To list all the containers which are created and running
+
+$> docker container ls
+
+# To list all the containers which are created (including the containers which are running and which are stopped)
+
+$> docker container ls -a 
+
+# To inspect/view the configuration of a container 
+
+$> docker container inspect <container-name/container-id>

@@ -1,0 +1,17 @@
+
+# you need to have nodejs and npm installed on your local machine.
+
+# using create-react-app generator to create the project structure 
+
+$> npx create-react-app <app-name>
+
+Example 
+$> npx create-react-app my-first-react-app
+
+#This will create the project structure and will add all the required packages.
+
+
+#Once this folder is created moved to the folder and run (npm start) command to start the website
+
+$> cd <app-name>
+$> npm start

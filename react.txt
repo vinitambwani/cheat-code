@@ -1,0 +1,9 @@
+
+#To create a new project
+
+$>npx create-react-app <app-name>
+
+
+#To start the project 
+
+$>npm start
