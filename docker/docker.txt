@@ -27,7 +27,6 @@ $> docker container ls -a
 $> docker container inspect <container-name/container-id>
 
 
-
 ----------------------------------------------------------------------------------------------------------
 Image Layers:
 
@@ -93,6 +92,99 @@ $>docker logout
 Build a docker image:
 
 $>docker build -f Dockerfile
+
+--------------------------------------------------------------------------------------------------------------
+
+Listing running containers:
+
+$> docker ps 
+(older command)
+
+$> docker container ls
+
+--------------------------------------------------------------------------------------------------------------
+
+Listing all containers (running and stopped containers)
+
+$> docker container ls -a
+
+--------------------------------------------------------------------------------------------------------------
+
+To get information about a docker image
+
+$> docker image inspect <image-name>
+
+--------------------------------------------------------------------------------------------------------------
+
+To get information about a docker container 
+
+$> docker container inspect <container-name/container-id>
+
+--------------------------------------------------------------------------------------------------------------
+
+To run a docker image:
+
+$> docker run <image-name>:<tag-name>
+
+this command will create the container for the given image with a random container-name
+
+if the image has exposed any particular port and you want to map it to any other port in the host machine this can be 
+done using -p option
+
+$> docker run --name <container-name> -p <host-port>:<container-port> -d <image-name>:<tag:name>
+
+--name: if you want to give any specific name to the container
+
+-p <host-port>:<container-port> : So the port of the host machine is mapped to an exposed port of the container
+
+-d, --detach This is a flag which starts a container as a background process that doesn't occupy your terminal
+
+if you want to publishes all the exposed ports on the host machine as is then -P option is used, these are those ports which are exposed
+using EXPOSE instruction in Dockerfile
+
+$> docker run -P <image-name>:<tag-name>
+
+if you want to set any environment variable in the container thne we can use -e, --env and --env-file flags to
+
+Example:
+$> docker run --env VAR1=value1 --env VAR2=value2 <image-name>:<tag-name>
+
+
+if a file is containing variables in values like and if the name of the file is env.list
+
+VAR1=value1
+VAR2=value2
+
+$> docker run --evn-file env.list <image-name>:<tag-name>
+
+
+---------------------------------------------------------------------------------------------------------------
+
+To remove/destroy a container from a machine
+
+$> docker container remove <list of continer-ids/container-names separated by space>
+
+---------------------------------------------------------------------------------------------------------------
+
+To stop a running container:
+
+$> docker container stop <list of container-ids/container-names separated by space>
+
+This containers can be started again by using the start command 
+
+$> docker container start <list of container-ids/container-names separated by space>
+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 
