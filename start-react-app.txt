@@ -15,3 +15,10 @@ $> npx create-react-app my-first-react-app
 
 $> cd <app-name>
 $> npm start
+
+
+#To install react-dom and saga dependencies we can run the following command:
+
+$>npm install --save redux react-redux redux-saga reactstrap react react-dom axios 
+
+=>axios is the library used to call rest apis

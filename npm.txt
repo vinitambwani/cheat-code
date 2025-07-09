@@ -1,0 +1,13 @@
+
+
+#update npm to the latest version of npm
+
+$>npm install -g npm@latest
+
+#verify the version of npm:
+
+$>npm -v
+
+#update the project dependencies to ensure compatibility to the new npm version
+
+$>npm update

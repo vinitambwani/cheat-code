@@ -1,0 +1,94 @@
+
+
+1. Deploy an app to kubernetes cluster
+
+$> kubectl create deployment <deployment-name> --image=<image-name>
+
+deployment-name: it is the name that will be given to the deployment object
+
+image-name: it is the path of the image that will be deployed in the container. 
+
+example: 
+
+$> kubectl create deployment trial-project --image=vinitambwani/trial-project
+
+
+one can view the list of deployments by running the following command:
+
+$> kubectl get deployments
+
+one can view the pods that are created as part of the deployment by running the 
+
+$> kubectl get pods
+
+one can also view the logs of the deployed pods, by running the following command
+
+$> kubectl logs <pod-name>
+
+
+2. To expose the deployed to app external world
+
+A Service in Kubernetes is an abstraction which defines a logical set of Pods and a policy by which to access them:
+
+Each pod has a unique IP address, these IPs are not exposed outside the cluster without a Service. 
+Service allow your applications to receive traffic.
+
+Services can be exposed in different ways by specifying the type 
+
+- ClusterIP ( default ) - Exposes the service on an internal IP in the cluster. This type makes the Service only reachable from within the cluster.
+
+- NodePort - Exposes the service on the same port of each selected NOde in the cluster using NAT. Makes a Service accessible from outside the cluster
+using NodeIP:NodePort. Superset of ClusterIP.
+
+- LoadBalancer - Creates an external Load balancer in the current cloud and assigns a fixed, external IP to the service. Superset of NodePort.
+
+- ExternalName - Maps the service to the contents of the externalName, 
+
+
+Creation of service:
+
+$> kubectl expose deployment/trial-project --type="NodePort" --port 8080
+
+one can view the services by running the following command:
+
+$> kubectl get services
+
+to view a specific service
+$> kubectl get service <service-name>
+OR
+$> kubectl get services/<service-name>
+
+Example:
+$> kubectl get services/trial-project
+
+
+To view the detail information of the service:
+
+$> kubectl describe services/<service-name>
+
+Example:
+
+$> kubectl describe services/trial-project
+
+3. One can check how many instances of the application are running, by default  create deployment creates only one replica
+
+to view the replica set
+
+$> kubectl get replicaset 
+OR
+$> kubectl get rs
+
+4. To scale the application from one to three instances
+
+$> kubectl scale deployments/trial-project --replicas=3
+
+after running one can check the number of pods running by following command:
+
+$> kubectl get pods -o wide
+
+&& 
+
+$> kubectl describe deployments/trial-project
+
+if you want to scale down the instances then the same command can be used with replicas set to a reduced number.
+

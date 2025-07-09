@@ -1,0 +1,13 @@
+
+# To start the minikube cluster
+
+$> minikube start
+
+---------------------------------------------------------------------------------------------------
+
+To view the minikube dashboard:
+
+$> minikube dashboard
+
+This will give the path of the dashboard on the command-line which can be executed in the web browser.
+

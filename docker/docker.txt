@@ -1,0 +1,106 @@
+# To check the version of docker installed on the machine
+
+$> docker --version
+
+# To view the system wide information regarding the docker installation
+
+$> docker info
+
+# To list all the images which are available locally 
+
+$> docker image ls
+
+OR 
+
+$> docker images
+
+# To list all the containers which are created and running
+
+$> docker container ls
+
+# To list all the containers which are created (including the containers which are running and which are stopped)
+
+$> docker container ls -a 
+
+# To inspect/view the configuration of a container 
+
+$> docker container inspect <container-name/container-id>
+
+
+
+----------------------------------------------------------------------------------------------------------
+Image Layers:
+
+history command : Shows the history of the image
+
+$> docker history <image-name>:<tag>
+Example:
+$> docker history nginx:latest
+
+inspect command: Inspect gives the metadata information of the image
+
+$> docker image inspect <image-name>:<tag>
+
+old command:
+$>docker inspect <image-name>:<tag>
+
+-----------------------------------------------------------------------------------------------------------
+
+Tagging an image:
+
+$> docker image tag --help
+
+Docker image tag is used to create a target image that refers to the source image
+
+$> docker image tag source_image[:tag] target_image[:tag]
+
+where tag is optional for both source image, if not mentioned then latest will be the default tag
+
+Example:
+
+$> docker image tag nginx vinitambwani/nginx
+
+This will tag the nginx image with latest tag in the local machine as vinitambwani/nginx with latest tag.
+When you will run docker image ls command you will see both nginx and vinitambwani/nginx images but with the same image id.
+
+------------------------------------------------------------------------------------------------------------
+
+Pushing an image:
+
+$>docker image push <image>
+
+if you haven't logged in to docker then it will give access denied.
+
+Example: 
+$>docker image push vinitambwani/nginx
+
+------------------------------------------------------------------------------------------------------------
+
+Login to Docker hub:
+$>docker login -u <username>
+
+this command will prompt you for entering the password. on entering the password, it will be stored in an unencrypted format in
+/home/<user>/.docker/config.json file
+
+--------------------------------------------------------------------------------------------------------------
+
+Logout from docker hub:
+
+$>docker logout
+
+--------------------------------------------------------------------------------------------------------------
+
+Build a docker image:
+
+$>docker build -f Dockerfile
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+Steps to create a docker image
+
+To create the docker image, the steps to create the image are written in a file named: Dockerfile (no extension)
+
+If you are packaging a Spring boot application into a Docker image following steps should be carried out.
+1. Ensure your Spring Boot project is configured to produce an executable jar file.
+
+2. When the project is build (using maven/gradle) it should create an executable jar file 
+   if the application name is first-project then it should create a jar file called first-project.jar
+   This jar will be created in target or build/libs directory.
+
+3. Create a Dockerfile in the project root directory.
+
+   Sample contents of the Dockerfile:
+
+	FROM eclipse-temurin:21.0.7_6-jdk-alpine-3.21
+	ARG JAR_FILE=target/first-project.jar
+	COPY ${JAR_FILE} app.jar
+	ENTRYPOINT [ "java", "-jar", "/app.jar" ]
+	EXPOSE 8080
+
+   
+4. Run the docker build command in the same folder where the Dockerfile is present
+
+$> docker build -t first-project .
+
+if tag is not given then by default it builds the image with the latest tag.
+if the name of the Dockerfile is different then -f <filename> should be used
+
+Note: if file argument -f is being used then the filename and directory names should not have spaces.
+
+docker build command should end with a dot (.)
+
+
+
+
