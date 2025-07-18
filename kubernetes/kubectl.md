@@ -88,6 +88,28 @@ Example:
 
  ```$> kubectl get pods -l app!=trial-project```
 
+ while fetching the pods if you want to see separate columns for each label and their corresponding values for every pod in a tabular fashion
+ one can use -L option. If you want to see two label columns app and env in the table which gets listed with pod information one can use the following.
+
+ ```$> kubectl get pods -l app=trial-project -Lapp -Lenv```
+
+ This will show two columns, one for app and other for env and list their values for all the pods.
+
+#### Labeling the pods
+
+We can label the pods when the pods are create, but we can also add other labels once the pod is created and even change the values for the existing labels. This can be done by following command:
+
+```$> kubectl label pod <pod-name> <label-name>=<value>```
+
+if you want to label all the pods containing a particular label of a particular value one can use -l option to get those pods.
+For example: labeling all the pods with label app=trial-project with tier=frontend
+
+```$> kubectl label pod -l app=trial-project tier=frontend```
+
+
+
+
+
 
 
 
